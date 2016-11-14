@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+
+    <title>Rendering Algorithms - PA3</title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Programming Assignment 3 - MC Raytracing</h1>
+</div>
+
+<div class="container contentWrapper">
+<div class="pageContent">
+
+	<!-- ================================================================= -->
+
+	<h2>Part 1: Light Sampling</h2>
+
+	<p>It took about 3 days to finish this part.It took me much more time to understand the definition of distant disk light. And I aslo spent a lot of time to understand the code base, like how to use the class discretePDF and how to set the mesh of an emitter, etc. </p>
+     
+    <h3>I have pasted all the required tests.xml in the Validation.</h3>
+	<h3>sphere_ao_ems.xml scene Comparison</h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_ao_ems_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/sphere_ao_ems.png" alt="Mine" class="img-responsive">
+	</div> <br>
+
+     <h3>sphere_side_ems.xml scene Comparison</h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_side_ems_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/sphere_side_ems.png" alt="Mine" class="img-responsive">
+	</div> <br>
+	<!-- ================================================================= -->
+
+	<h2>Part 2: BRDF Sampling</h2>
+
+	<p>It took about 2 days to finish this part. I spent most of the time for review these equations and the debug things. And the answers on piazza are really helpful for me to fix some issues. </p>
+
+    <h3>I have passed all the required tests.xml in the validation. </h3>
+
+    <h3>Warptest Result for BRDF Sampling</h3>
+     
+     <div class = "twentytwenty-container">
+     <img src="images/warpTest.jpg">
+     </div>
+
+     <div class = "twentytwenty-container">
+     <img src="images/warpResult.jpg">
+     </div><br>
+
+	<h3>sphere_ao_mats.xml scene Comparison </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_ao_mats_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/sphere_ao_mats.png" alt="Mine" class="img-responsive">
+	</div> <br>
+	
+	<h3>sphere_side_mats.xml scene Comparison </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_side_mats_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/sphere_side_mats.png" alt="Mine" class="img-responsive">
+	</div> <br>
+
+    <h3>odyssey_mats.xml scene Comparison </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/odyssey_mats_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/odyssey_mats.png" alt="Mine" class="img-responsive">
+	</div> <br>
+
+     <h3>odyssey_mats.xml scene Comparison </h3>
+     <p>The scene I rendered is darker than the reference one. And I really tried to find the problem but still haven't fixed it. It took me all night to check where has the problem but still failed.</p>
+	<div class="twentytwenty-container">
+	    <img src="images/veach_mats_ref.png" alt="Reference" class="img-responsive">
+	    <img src="images/veach_mats.png" alt="Mine" class="img-responsive">
+	</div> <br>
+
+
+
+	<!-- ================================================================= -->
+
+	<h2>Part 3: Multiple Importance Sampling</h2>
+
+	<p>It took about 3 hours to finish this part, but I spent at lease 1 day to check where I am doing a wrong thing. Most of the time are debugging. So I haven't past the tests.xml in validation. But the sphere and odyssey scenes all worked well.</p>
+
+	
+
+	<h3>sphere_ao_ems.xml direct_ems Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_ao_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_ao_ems.png" alt="Mine direct_ems" class="img-responsive">
+	</div> <br>
+    
+    <h3>sphere_ao_mats.xml direct_mats Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_ao_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_ao_mats.png" alt="Mine direct_mats" class="img-responsive">
+	</div> <br>
+    
+    <h3>sphere_ao_mis.xml direct_mis integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_ao_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_ao_mis.png" alt="Mine direct_mis" class="img-responsive">
+	</div> <br>
+
+     
+   <h3>sphere_side_ems.xml direct_ems Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_side_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_side_ems.png" alt="Mine direct_ems" class="img-responsive">
+	</div> <br>
+
+    <h3>sphere_side_ems.xml direct_mats Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_side_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_side_mats.png" alt="Mine direct_mats" class="img-responsive">
+	</div> <br>
+
+    <h3>sphere_side_ems.xml direct_mis Integrator VS Mis Reference  </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/sphere_side_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/sphere_side_mis.png" alt="Mine direct_mis" class="img-responsive">
+	</div> <br>
+
+
+   <h3>odyssey/odyssey_ems.xml direct_ems Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/odyssey_mis_32spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/odyssey_ems.png" alt="Mine direct_ems" class="img-responsive">
+	</div> <br>
+
+  <h3>odyssey/odyssey_mats.xml direct_mats Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/odyssey_mis_32spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/odyssey_mats.png" alt="Mine direct_mats" class="img-responsive">
+	</div> <br>
+ 
+   <h3>dyssey/odyssey_mis.xml direct_mis Integrator VS Mis Reference  </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/odyssey_mis_32spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/odyssey_mis.png" alt="Mine direct_mis" class="img-responsive">
+	</div> <br>
+
+ <h3>veach_mi/veach_ems.xml direct_ems Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/veach_mis_128spp.png" alt="Reference" class="img-responsive">
+	    <img src="images/veach_ems.png" alt="Mine direct_ems" class="img-responsive">
+	</div> <br>
+
+
+ <h3>veach_mi/veach_mats.xml direct_mats Integrator VS Mis Reference </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/veach_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/veach_mats.png" alt="Mine direct_mats" class="img-responsive">
+	</div> <br>
+
+  <h3>veach_mi/veach_mis.xml direct_mis Integrator VS Mis Reference  </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/veach_mis_128spp.png" alt="Mis Reference" class="img-responsive">
+	    <img src="images/veach_mis.png" alt="Mine direct_mis" class="img-responsive">
+	</div> <br>
+
+
+	<!-- ================================================================= -->
+
+	<h2>Part 4: Itresting Scene</h2>
+	<p> I actually want to generat a image ajax is on a stage and lighted by some emitters. And then I want to make a simulated moon emitter.This is my result.</p>
+    
+     <div class = "twentytwenty-container">
+     <img src="images/ajax.jpg">
+     </div><br>
+
+
+</div>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="/js/offcanvas.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>

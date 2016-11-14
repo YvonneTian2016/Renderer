@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+
+    <title>Computer Graphics - PA2</title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Final Project Proposal - Diamonds & Carbon</h1>
+    
+</div>
+
+<div class="container contentWrapper">
+<div class="pageContent">
+
+	<!-- ================================================================= -->
+
+	<h2>Part 1: Inspiration</h2>
+
+	<p>Diamonds are made from carbon, but the appearance of these two items are totally different. So I think the diamond and carbon go well to the theme "Contrast". And I started off with the following inspiration images shown below, a diamond on a big carbon bed or a contrast scene between the diamond and carbon. </p>
+
+	<h3>Inspiration Image</h3>
+     
+     <div class = "twentytwenty-container">
+     <img src="images/diamond1.jpg" alt="Inspiration1">
+     </div>
+
+     <div class = "twentytwenty-container">
+     <img src="images/diamond2.jpg" alt="Inspiration2">
+     </div><br>
+   
+
+	<!-- ================================================================= -->
+
+	<h2>Part 2: Relevant Features</h2>
+
+	<p>1. Spot Light/ or other Emitters: There will be at least one emitter in the scene. And this light could be set with different parameters to see a different effect of the scene.</p>
+  <p>2. Path tracing diffusive surface: For the pure diffuse surface in the scene, the path tracing could be used directly.</p>
+  <p>3. BRDF sampling: For the carbon object, microfaced model is necessory to used in the brdf sampling.</p>
+  <p>3. Photon Mapping: For the diamond object, photon mapping could be used for caustic effects and finally re using photon mapping for global illumination.</p>
+
+	<!-- ================================================================= -->
+
+	<h2>Part 3:Features that could sum up to 24 points </h2>
+
+	<p>Simple Features(2 points): 1.Spot Light or other emitters haven't been implemented in the previous assignment. 2. Add Texture mappting to the scene, like in the backgroud or plane.</p>
+  <p>Moderate Features(6 points): 1. Anisotropic BRDF(for the carbon surface): an extensiton of the microfaced model. 2. Progressive Photon Mapping</p>
+  <p>Advanced Features(12 points): Use parametric way of estimating the probability density of a random variable (photon density).</p>
+ <br>
+  <!-- ================================================================= -->
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="/js/offcanvas.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>

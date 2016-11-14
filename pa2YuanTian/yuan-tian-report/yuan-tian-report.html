@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+
+    <title>Computer Graphics - PA2</title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Programming Assignment 2 - Sampling & Warping</h1>
+</div>
+
+<div class="container contentWrapper">
+<div class="pageContent">
+
+	<!-- ================================================================= -->
+
+	<h2>Part 1: Warp::squareToUniformDisk and Warp::squareToUniformDiskPdf</h2>
+
+	<p>It took about 20min to finish this part. And no difficult problems encountered.</p>
+
+	<h3>Warptest Result for UniformDisk</h3>
+     
+     <div class = "twentytwenty-container">
+     <img src="images/result1(1).jpg">
+     </div>
+
+     <div class = "twentytwenty-container">
+     <img src="images/result1(2).jpg">
+     </div><br>
+   
+
+	<!-- ================================================================= -->
+
+	<h2>Part 2: Warp::squareToUniformSphere and Warp::squareToUniformSpherePdf</h2>
+
+	<p>It took about 30 min to finish this part. I implemented two method to do uniform sphere sampling, one is based on the Cylinder sampleing and the other one is not. </p>
+
+	<h3>Warptest Result for UniformSphere </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/result2(1).jpg" alt="Reference" class="img-responsive">
+	</div> 
+	<div class="twentytwenty-container">
+	    <img src="images/result2(2).jpg" alt="Reference" class="img-responsive">
+	</div> <br>
+	<!-- ================================================================= -->
+
+	<h2>Part 3: Warp::squareToUniformHemisphere and Warp::squareToUniformHemispherePdf</h2>
+
+	<p>It took about 10 min to finish this part. And I also implemented two methods to do the uniform Hemisphere sampling.</p>
+
+	<h3>Warptest Result for UniformHemisphere </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/result3(1).jpg"  class="img-responsive">
+	</div> 
+	<div class="twentytwenty-container">
+	    <img src="images/result3(2).jpg"  class="img-responsive">
+	</div> <br>
+
+	<!-- ================================================================= -->
+
+	<h2>Part 4: Warp::squareToUniformSphericalCap and Warp::squareToUniformSphericalCapPdf</h2>
+
+	<p>It took about 20 min to finish this part, most time was spent on the computing of sample.z(). And I also implemented two methods to do the uniform SphericalCap Sampling. </p>
+
+	<h3>Warptest Result for UniformSphericalCap </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/result4(1).jpg"  class="img-responsive">
+	</div> 
+	<div class="twentytwenty-container">
+	    <img src="images/result4(2).jpg"  class="img-responsive">
+	</div> <br>
+
+	<!-- ================================================================= -->
+
+	<h2>Part 5: Warp::squareToCosineHemisphere and Warp::squareToCosineHemispherePdf</h2>
+
+	<p>It took about 30 min to finish this part, most time was spent on the checking the Malley’s method on book. </p>
+
+	<h3>Warptest Result for CosineHemisphere </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/result5(1).jpg"  class="img-responsive">
+	</div> 
+	<div class="twentytwenty-container">
+	    <img src="images/result5(2).jpg"  class="img-responsive">
+	</div> <br>
+
+    <!-- ================================================================= -->
+    <h2>Part 6: Warp::squareToBeckmann and Warp::squareToBeckmannPdf</h2>
+
+	<p>It took about 4 hours to finish this part. The two main problems I encountered are: Iforgot to take the constant ‘C’ into consideration in the process of integration；The other one is ignore the cosTheta could not be zero when it's the denominator in the function. </p>
+
+	<h3>Warptest Result for Beckmann </h3>
+	<div class="twentytwenty-container">
+	    <img src="images/result6(1).jpg"  class="img-responsive">
+	</div> 
+	<div class="twentytwenty-container">
+	    <img src="images/result1(2).jpg"  class="img-responsive">
+	</div> <br>
+
+	<p>Firstly, compute the integral of p(θ,φ) over the entire hemisphere: 
+       \[ I = P(\pi/2,2\pi) = \int_0^{2\pi} \int_0^{\frac{\pi}{2}} p(\theta,\phi) \sin{\theta} ~ \mathrm{d}\theta ~ \mathrm{d}\phi  \]
+       Verify that your result integrates to 1.
+    \[ = \int_0^{\frac{\pi}{2}} 2\pi p(\theta,\phi) \sin{\theta}  ~\mathrm{d}\theta\]
+    \[ = \int_0^{\frac{\pi}{2}} \frac{2\sin{\theta}e^{\frac{-\tan^2{\theta}}{\alpha^2}}}{\alpha^2\cos^3{\theta}} ~\mathrm{d}\theta    \]   
+
+     Then using the hint function:
+     \[\int f'(x) ~ e^{~f(x)} dx = e^{~f(x)} + C\text{, where } C\in\mathbb{R} \]
+    So,
+    $$
+    \begin{align}
+    \int_0^{\frac{\pi}{2}} \frac{2\sin{\theta}e^{\frac{-\tan^2{\theta}}{\alpha^2}}}{\alpha^2\cos^3{\theta}} ~\mathrm{d}\theta  &= \begin{bmatrix}-e^{\frac{-\tan^2{\theta}}{\alpha^2}}-C \end{bmatrix} _0^{\frac{\pi}{2}}  \\
+     &= -e^{\frac{-\tan^2{\frac{\pi}{2}}}{\alpha^2}}+e^{\frac{-\tan^2{0}}{\alpha^2}}      \\
+     &= 0+1  \\
+     &= 1     \\
+    \end{align}
+   $$
+    So we could verify that the integral of p(θ,φ) over the entire hemisphere is 1.
+    </p>
+
+
+
+   <p> To do the Backmann Sampling, we need to compute the marginal and conditional densities of the $p(\theta,\phi)$. <br>
+   <B>Compute Marginal density: </B>
+   $$
+   \begin{align}
+   p(\theta)& = \int_0^{2\pi}\frac{\sin{\theta}e^{\frac{-\tan^2{\theta}}{\alpha^2}}}{\pi \alpha^2\cos^3{\theta}} ~\mathrm{d}\phi \\
+   & = \frac{2\sin{\theta}e^{\frac{-\tan^2{\theta}}{\alpha^2}}}{\alpha^2\cos^3{\theta}}  
+   \end{align}
+   $$
+   <B>Compute Conditional distribution: </B>
+   $$
+   \begin{align}
+   p(\theta| \phi) &= \frac{p(\theta,\phi)}{p(\theta)} \\
+   &= \frac{1}{2\pi}
+   \end{align}
+  $$
+
+  Then Compute $P(\theta)$, $P^{-1}(\theta)$, $P(\phi)$, $P^{-1}(\phi)$. <br>
+  
+  <B>For CDF $P(\theta)$: </B>
+
+  $$
+  \begin{align}
+  P(\theta) & = \int{\frac{2\sin{\theta}e^{\frac{-\tan^2{\theta}}{\alpha^2}}}{\alpha^2\cos^3{\theta}} ~\mathrm{d}\theta }  \\
+  P(\theta) & = -e^{\frac{-\tan^2{\theta}}{\alpha^2}}-C 
+  \end{align}
+  $$
+
+  Because of the definition of CDF, the $P(\frac{\pi}{2})$ = 1, then:
+  $$
+  \begin{align}
+  P(\frac{\pi}{2}) & = -e^{\frac{-\tan^2{\frac{\pi}{2}}}{\alpha^2}}-C =1 \\
+  &\Rightarrow  C = -1      \\
+  P(\theta) & = 1-e^{\frac{-\tan^2{\theta}}{\alpha^2}}
+  \end{align}
+  $$
+   
+  <B>For CDF $P(\phi)$:  </B>
+  $$
+  \begin{align}
+  P(\phi) & = \frac{1}{2\pi}\phi \\
+  \end{align}
+  $$
+
+  <B>Applying inverse CDFs give: </B>
+  $$
+  \begin{align}
+  P^{-1}(\theta) & = \arctan{\sqrt{-\alpha^2\ln(1-\xi_1)}}  \\
+  P^{-1}(\phi) & = 2\pi\xi_2 \\
+  \end{align}
+  $$
+  
+  Then we can use the 2D sample points, $\xi_1$ and $\xi_2$ to sample the $\theta$ and $\phi$, <br>
+  Finaly, we get the 3D vector: 
+   $$
+  \begin{align}
+  Beckmann.x() &= \sin(\theta)\cos(\phi) \\
+  Beckmann.y() &= \sin(\theta)\sin(\phi) \\
+  Beckmann.z() &= \cos(\theta)
+  \end{align}
+  $$
+
+
+   </p>
+
+
+</div>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="/js/offcanvas.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>
